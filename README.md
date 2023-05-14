@@ -8,4 +8,4 @@ Neural oscillations are prominent features of neuronal population activity in th
 ## Demo Notebook
 <p align="justify">
 isoCycle_example.ipynb show case the code used to extract gamma and beta cycles from the spiking activity of 131 neurons simultaneously recorded in mouse V1 during visual stimulation.
-<\p>
+    <\p>
