@@ -9,8 +9,7 @@ Neural oscillations are prominent features of neuronal population activity in th
 <p align="justify">
 isoCycle_example.ipynb showcases the code used to extract gamma and beta cycles from the spiking activity of 131 neurons simultaneously recorded in mouse V1 during visual stimulation. You can run the code here on googlecolab.
     
-## Python Dependecies
-list of the required packages:
+## list of the required python packages:
     - numpy
     - matplotlib
     - keras
