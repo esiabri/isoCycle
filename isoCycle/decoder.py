@@ -4,21 +4,11 @@ import tensorflow as tf
 import numpy as np
 from scipy import signal
 
-import spike
+from isoCycle import spike
 
-# outputs = cycleDetection (inputs)
-# detect cycles from population spike times recorded from in a local network
-# inputs:
-# spikeTimes: the time of spikes from all neurons in seconds#
-# decoderAdd: address to the trained decoder folder, default: isoCycle_publishedModel_2022-06-28.pkl if both the pkl file and the folder with the name are in the same folder as this file
-# cycleName: default: 'gamma' - options: 'highGamma', 'gamma', 'beta', 'alpha', 'theta' ,'delta'
-# wholeSession: default: False - if True the decoder is run on the entire session, if Fasle the cycles are detected in the first "cycleDetectionDur" seconds
-# cycleDetectionDur: default: 1500 - the epoch length from session start for cycle detection if wholeSession == False
-# detectionThreshold: default: 0.035 - threshold for detecting the cycles from the decoder input, the default value is for 5% FA and 93% Hit for 5% noise and 20% Jitter (std) on the width of the cycles
-# regionName: default: 'V1' - the name of the region for the data for the generated figures
-# showFigs: default: True - to generate the figures to see the results
 
-def cycleDetection(spikeTimes, decoderAdd='isoCycle_publishedModel_2022-06-28.pkl',\
+
+def cycleDetection(spikeTimes, decoderAdd='isoCycle/isoCycle_publishedModel_2022-06-28.pkl',\
         regionName='V1', cycleName='gamma', wholeSession=False, cycleDetectionDur=10,\
                detectionThreshold=0.035, showFigs=True,\
                 decoderOutpuVisualization=False, saveFigs=True, templateWidth_3s=3,\
@@ -26,6 +16,18 @@ def cycleDetection(spikeTimes, decoderAdd='isoCycle_publishedModel_2022-06-28.pk
                     sessionName=None, interCycleIntervalFig=False, highPassFilter=False, histBinWidth=0,\
                         subjectName=None,\
                             savePDF = 'True', notShowFig=True, distWindowLenghtIni=0):
+    
+    '''
+         detect cycles from population spike times recorded in a local network
+         inputs:
+            spikeTimes          : the time of spikes from all neurons in seconds#
+            decoderAdd          : address to the trained decoder folder, default: isoCycle/isoCycle_publishedModel_2022-06-28.pkl if both the pkl file and the folder with the name are in the same folder as this file
+            cycleName           : default: 'gamma' - options: 'highGamma', 'gamma', 'beta', 'alpha', 'theta' ,'delta'
+            wholeSession        : default: False - if True the decoder is run on the entire session, if Fasle the cycles are detected in the first "cycleDetectionDur" seconds
+            cycleDetectionDur   : default: 1500 - the epoch length from session start for cycle detection if wholeSession == False
+            detectionThreshold  : default: 0.035 - threshold for detecting the cycles from the decoder input, the default value is for 5% FA and 93% Hit for 5% noise and 20% Jitter (std) on the width of the cycles
+            regionName          : default: 'V1' - the name of the region for the data for the generated figures
+            showFigs            : default: True - to generate the figures to see the results'''
 
     # cycle scale to initiate the proper decoder
     if cycleName == 'highGamma':
@@ -77,12 +79,12 @@ def cycleDetection(spikeTimes, decoderAdd='isoCycle_publishedModel_2022-06-28.pk
     print('%(number)d %(string)s cycles detected during %(dur)d seconds in %(regionName)s' %{'string':cycleName,'number':detectedCyclesNo, 'regionName':regionName, 'dur':sessionLength})
     print('')
 
-    if showFigs:
+    # if showFigs:
             
-        decoderOutputVisualization(\
-            inputSignalToDecoder[binsBefore_general_template:-binsAfter_general_template],\
-                decoderOutput, templateDetectedTimes, dt=dt, figTitle='detected cycles on ' + inputName,\
-                    signalName=signalName)
+    #     decoderOutputVisualization(\
+    #         inputSignalToDecoder[binsBefore_general_template:-binsAfter_general_template],\
+    #             decoderOutput, templateDetectedTimes, dt=dt, figTitle='detected cycles on ' + inputName,\
+    #                 signalName=signalName)
 
 
     # if interCycleIntervalFig:
