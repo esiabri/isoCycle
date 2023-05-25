@@ -11,7 +11,7 @@ Neural oscillations are prominent features of neuronal population activity in th
 
 You can run the demo on Google Colab <a class="new-tab-link" href="https://colab.research.google.com/github/esiabri/isoCycle/blob/main/isoCycle_example_Colab.ipynb" target="_blank" style="pointer-events: none;">
   <img alt="https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/colab-badge_green.svg" src="https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/colab-badge_green.svg" align="center" style="pointer-events: auto;" width="150px"/>
-</a> or on your own machine after installing the isoCycle package.
+</a> or [follow these steps](https://github.com/esiabri/isoCycle/tree/main/isoCycle/example) to run it on your own machine after installing the isoCycle package.
 
 ## Extract the Cycle Times in Your Spiking Data on Google Colab
 <p align="center">
