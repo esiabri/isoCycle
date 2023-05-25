@@ -20,7 +20,7 @@ You can run the demo on Google Colab <a class="new-tab-link" href="https://colab
 </a>
 
 On this Google Colab (linked above), you can use isoCycle online to analyze your own data. All you need to do is upload your recorded spike times to your Google Drive in a .npy file. IsoCycle will then extract the times of the cycle you choose (e.g., gamma, theta, etc.) from your data.
-<br>If you use kilosort/phy for spike sorting here is a [matlab function](https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/isoCycleInput_build.m) that generates .npy file, which can be used as input for isoCycle.</p>
+<br>If you using kilosort/phy for spike sorting, you can use this [matlab function](https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/isoCycleInput_build.m) to generates the .npy file for this google colab.</p>
     
 ## Installation
 <p>
