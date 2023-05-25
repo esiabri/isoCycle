@@ -27,16 +27,10 @@ On this Google Colab (linked above), you can use isoCycle online to analyze your
     
 ## Installation
 <p>
-If you are comfortable with Python, you can install isoCycle in your environment of choice with pip:
+Python users, you can install isoCycle with pip, consider a new environment as conflicts are likely:
 
 ```buildoutcfg
 pip install isoCycle
-```
-You can then import isoCycle and run the example Notebook: 
-<!-- [MOVE THE EXAMPLE DOC TO ITS OWN FOLDER WITH A LINK HERE----TO RUN THE NOTEBOOK ON THE SAME ENV IT NEEDS EXTRA STEPS (what if the env name is known?, running the notebook with a predefined kernel, but it needs to have the additional code for adding the kernel to the jupyter kernel list----] -->
-```buildoutcfg
-from isoCycle import decoder
-decoder.run_example()
 ```
 
 Here are the detailed steps for installation from scratch using Anaconda:
@@ -66,19 +60,7 @@ import isoCycle
 
 Now, with Anaconda installed, a new environment created, and isoCycle successfully installed, you are ready to analyze your data using isoCycle. You can use [Jupyter Notebook](https://jupyter.org/try-jupyter/retro/notebooks/?path=notebooks/Intro.ipynb) to import and use isoCycle
   
-6. To run the [isoCycle_example.ipynb](https://github.com/esiabri/isoCycle/blob/main/isoCycle_example.ipynb) open a terminal on your computer and execute the following commands:
-  <br>(replace myenv with the name of your environment)
-```buildoutcfg
-conda activate myenv
-```
-  
-```buildoutcfg
-python
-```
-```buildoutcfg
-from isoCycle import decoder
-decoder.run_example()
-```
+6. To run the [isoCycle_example.ipynb](https://github.com/esiabri/isoCycle/blob/main/isoCycle_example.ipynb) refer to [example](https://github.com/esiabri/isoCycle/tree/main/isoCycle/example)
 </p>
 
 ## Setting up TensorFlow with GPU Support
