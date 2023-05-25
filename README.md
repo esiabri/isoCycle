@@ -23,7 +23,7 @@ On this Google Colab (linked above), you can use isoCycle online to analyze your
 <br>If you're using kilosort/phy for spike sorting, you can use this [matlab function](https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/isoCycleInput_build.m) to generates the .npy file for this google colab.</p>
 
 ## GPU acceleration
-<p> isoCycle employs a decoder developed with TensorFlow. Leveraging a GPU significantly reduces execution time, a factor particularly crucial for long recordings. However, configuring your GPU to work with TensorFlow requires additional steps post-package installation. For quick guidance, please refer to the section [Setting up TensorFlow with GPU Support](#setting-up-tensorflow-with-gpu-support). 
+<p> isoCycle employs a decoder developed with TensorFlow. Leveraging a GPU significantly reduces execution time, a factor particularly crucial for long recordings. However, configuring your GPU to work with TensorFlow requires additional steps post-package installation. For quick guidance, please refer to the section [Setting up TensorFlow with GPU Support](#setting-up-tensorflow-with-gpu-support).</p> 
     
 ## Installation
 <p>
@@ -79,6 +79,7 @@ python
 from isoCycle import decoder
 decoder.run_example()
 ```
+</p>
 
 ## Setting up TensorFlow with GPU Support
 
