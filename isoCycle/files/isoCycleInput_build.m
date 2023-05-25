@@ -6,8 +6,9 @@
 % make sure to add this module to your matlab path before running this
 % function
 
+% to run this function:
 % add this file to your matlab path
-% in matlab command line: isoCycleInput_build()
+% in matlab command line type isoCycleInput_build()
 
 function isoCycleInput_build(allValidClusters)
 
