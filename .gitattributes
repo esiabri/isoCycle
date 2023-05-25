@@ -1,0 +1,5 @@
+*.ipynb linguist-detectable=false
+*.tex linguist-detectable=false
+*.md linguist-detectable=false
+*.sty linguist-detectable=false
+*.bib linguist-detectable=false

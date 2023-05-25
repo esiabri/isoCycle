@@ -1,0 +1,181 @@
+\documentclass{article}
+
+
+% if you need to pass options to natbib, use, e.g.:
+%     \PassOptionsToPackage{numbers, compress}{natbib}
+% before loading neurips_2023
+
+
+% ready for submission
+\usepackage[preprint]{neurips_2023}
+
+
+% to compile a preprint version, e.g., for submission to arXiv, add add the
+% [preprint] option:
+%     \usepackage[preprint]{neurips_2023}
+
+
+% to compile a camera-ready version, add the [final] option, e.g.:
+%     \usepackage[final]{neurips_2023}
+
+
+% to avoid loading the natbib package, add option nonatbib:
+%    \usepackage[nonatbib]{neurips_2023}
+
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{xcolor}         % colors
+\usepackage{marvosym}
+\usepackage{natbib}
+
+
+\hypersetup{
+    colorlinks = True,
+    allbordercolors = {white},
+    urlcolor = {cyan},
+    citecolor = {gray},
+    linkcolor = {cyan}
+}
+
+
+% 5/21 Ehsan, envelope symbol for correspondence
+
+% Ehsan 5/17/23
+\bibliographystyle{apalike}
+
+
+\title{isoCycle: A Deep Network-Based Decoder for Isolating Single Cycles of Neural Oscillations in Spiking Activity}
+
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to LaTeX to determine where to break the
+% lines. Using \AND forces a line break at that point. So, if LaTeX puts 3 of 4
+% authors names on the first line, and the last on the second line, try using
+% \AND instead of \And before the third author name.
+
+\author{%
+  Ehsan Sabri\\%\thanks{Corresponding Author} \\
+  Dominick P. Purpura Department of Neuroscience\\
+  Albert Einstein College of Medicine\\
+  1410 Pelham Parkway South, Bronx, NY 10461\\
+  \texttt{mohammad.sabri@einsteinmed.edu} \\
+  % examples of more authors
+  \And
+  Renata Batista-Brito\\%\footnotemark[1] \\
+  Dominick P. Purpura Department of Neuroscience\\
+  Albert Einstein College of Medicine\\
+  1410 Pelham Parkway South, Bronx, NY 10461\\
+  \texttt{renata.brito@einsteinmed.edu} \\
+  % \AND
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+}
+
+
+\begin{document}
+
+
+\maketitle
+
+\setcounter{footnote}{0}
+
+\begin{abstract}
+  Neural oscillations are prominent features of neuronal population activity in the brain, manifesting in various forms such as frequency-specific power changes in electroencephalograms (EEG) and local field potentials (LFP), as well as phase locking between different brain regions, modulated by modes of activity. Despite the intrinsic relation between neural oscillations and the \textbf{\emph{spiking}} activity of single neurons, identification of oscillations has predominantly relied on indirect measures of neural activity like EEG or LFP, overlooking direct exploration of oscillatory patterns in the \textbf{\emph{spiking}} activity, which serves as the currency for information processing and information transfer in neural systems. Recent advancements in densely recording large numbers of neurons within a local network have enabled direct evaluation of changes in network activity over time by examining population spike count variations across different time scales. In this study, we introduce \emph{isoCycle}\footnote{\url{https://github.com/esiabri/isoCycle}}, which leverages the power of deep neural networks to robustly isolate single cycles of neural oscillations from the spiking of densely recorded populations of neurons. isoCycle effectively identifies individual cycles in the temporal domain, where cycles from different time scales may have been combined in various ways to shape spiking probability. The reliable identification of a single cycle of neural oscillations in spiking activity across various time scales will deepen our understanding of the dynamics of neural activity. In a specific use case, we demonstrate the utility of isoCycle by employing it to align trials in sensory stimulation experiments based on sensory-driven gamma cycles in the cortex, offering an alternative to relying solely on external events such as stimulus onset for trial alignment. By accounting for biological jitter in sensory signal transfer time across trials, isoCycle enables the retrieval of more accurate neural dynamics in response to sensory stimulation, thus enhancing our understanding of the underlying mechanisms.
+\end{abstract}
+
+\newpage
+\section{Introduction}
+The oscillatory pattern in the activity of populations of neurons is one of the hallmarks of neural systems \citep{Buzsaki2006RhythmsBrain}, that is reflected in the measurements of the electrical field around the neuronal population \citep{Buzsaki2012TheSpikes}. Neuronal oscillatory patterns of activity occur in specific spectral bands (Fig. 1A) as observed in the LFP which is a measure of neural population activity. It has been shown that individual neurons tend to spike in certain phases of these spectral bands, suggesting that the probability of spiking in a local population is modulated with the same repeating temporal motifs (Fig. 1B) that underlie the observation of the spectral changes in the LFP. To test this hypothesis, we constructed a signal with the same set of temporal motifs without any assumption about how these motifs are combined to shape the network spiking probability. Then we used this signal to train a deep network for isolating single cycles of these motifs. On the densely recorded extracellular activity where tens of neurons are recorded simultaneously, we then estimated the probability of network spiking across time by examining the variation in the recorded population spike count across time. Now, using the decoder, we isolated the time of occurrence for every single cycle of each set of temporal motifs that underlie the variation of network spiking across time.
+
+\section{Results}
+
+\section{Discussion}
+
+\section{Method}
+
+\newpage
+% \section*{References}
+
+\bibliography{References}
+
+
+\end{document}
+% \textbf{Important:} bold
+
+% \url{https://neurips.cc/public/guides/PaperChecklist}. url inline
+
+% \subsection{Style} subsection
+
+%{\bf nine} bold inline?
+
+%\emph{containing only acknowledgments} emphasize
+
+% \begin{center}
+%   \url{http://www.neurips.cc/}
+% \end{center}   url in the middle
+
+% \verb+neurips_2023.pdf+ fancy font?
+
+% \paragraph{Preprint option} paragraph start in bold
+
+% \ref{gen_inst} reference to a specific part of the text labeld as \label{gen_inst}
+
+% \footnote{Sample of the first footnote.} footnote
+
+% figures
+% \begin{figure}
+%   \centering
+%   \fbox{\rule[-.5cm]{0cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
+%   \caption{Sample figure caption.}
+% \end{figure}
+
+% table
+% \begin{center}
+%   \url{https://www.ctan.org/pkg/booktabs}
+% \end{center}
+% This package was used to typeset Table~\ref{sample-table}.
+
+
+% \begin{table}
+%   \caption{Sample table title}
+%   \label{sample-table}
+%   \centering
+%   \begin{tabular}{lll}
+%     \toprule
+%     \multicolumn{2}{c}{Part}                   \\
+%     \cmidrule(r){1-2}
+%     Name     & Description     & Size ($\mu$m) \\
+%     \midrule
+%     Dendrite & Input terminal  & $\sim$100     \\
+%     Axon     & Output terminal & $\sim$10      \\
+%     Soma     & Cell body       & up to $10^6$  \\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+
+
+% references
+% \citet for in line
+% \citep for citation with paranthesis
+
