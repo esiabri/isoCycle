@@ -11,7 +11,7 @@ Neural oscillations are prominent features of neuronal population activity in th
 
 You can run the demo on Google Colab <a class="new-tab-link" href="https://colab.research.google.com/github/esiabri/isoCycle/blob/main/isoCycle_example_Colab.ipynb" target="_blank" style="pointer-events: none;">
   <img alt="https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/colab-badge_green.svg" src="https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/colab-badge_green.svg" align="center" style="pointer-events: auto;" width="150px"/>
-</a> or on your own machine after installing the isoCycle package.
+</a> or [follow these steps](https://github.com/esiabri/isoCycle/tree/main/isoCycle/example) to run it on your own machine after installing the isoCycle package.
 
 ## Extract the Cycle Times in Your Spiking Data on Google Colab
 <p align="center">
@@ -21,22 +21,17 @@ You can run the demo on Google Colab <a class="new-tab-link" href="https://colab
 
 On this Google Colab (linked above), you can use isoCycle online to analyze your own data. All you need to do is upload your recorded spike times to your Google Drive in a .npy file. IsoCycle will then extract the times of the cycle you choose (e.g., gamma, theta, etc.) from your data.
 <br>If you're using kilosort/phy for spike sorting, you can use this [matlab function](https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/isoCycleInput_build.m) to generates the .npy file for this google colab.</p>
+
+## GPU acceleration
+<p> isoCycle employs a decoder developed with TensorFlow. Leveraging a GPU significantly reduces execution time, a factor particularly crucial for long recordings. However, configuring your GPU to work with TensorFlow requires additional steps post-package installation. For quick guidance, please refer to the section [Setting up TensorFlow with GPU Support](#setting-up-tensorflow-with-gpu-support).</p> 
     
 ## Installation
 <p>
-If you are comfortable with Python, you can install isoCycle in your environment of choice with pip:
+Python users, you can install isoCycle with pip, consider a new environment as conflicts are likely:
 
 ```buildoutcfg
 pip install isoCycle
 ```
-You can then import isoCycle and run the example Notebook: 
-<!-- [MOVE THE EXAMPLE DOC TO ITS OWN FOLDER WITH A LINK HERE----TO RUN THE NOTEBOOK ON THE SAME ENV IT NEEDS EXTRA STEPS (what if the env name is known?, running the notebook with a predefined kernel, but it needs to have the additional code for adding the kernel to the jupyter kernel list----] -->
-```buildoutcfg
-from isoCycle import decoder
-decoder.run_example()
-```
-  
-### GPU acceleration
 
 Here are the detailed steps for installation from scratch using Anaconda:
 
@@ -65,18 +60,30 @@ import isoCycle
 
 Now, with Anaconda installed, a new environment created, and isoCycle successfully installed, you are ready to analyze your data using isoCycle. You can use [Jupyter Notebook](https://jupyter.org/try-jupyter/retro/notebooks/?path=notebooks/Intro.ipynb) to import and use isoCycle
   
-6. To run the [isoCycle_example.ipynb](https://github.com/esiabri/isoCycle/blob/main/isoCycle_example.ipynb) open a terminal on your computer and execute the following commands:
-  <br>(replace myenv with the name of your environment)
-```buildoutcfg
-conda activate myenv
+6. To run the [isoCycle_example.ipynb](https://github.com/esiabri/isoCycle/blob/main/isoCycle_example.ipynb) refer to [example](https://github.com/esiabri/isoCycle/tree/main/isoCycle/example)
+</p>
+
+## Setting up TensorFlow with GPU Support
+
+To utilize the power of GPU acceleration with TensorFlow, ensure that you have the correct hardware and software setup. 
+
+You will need a CUDA-capable GPU and you'll need to install the CUDA Toolkit and the cuDNN library. Once these are installed, you can install TensorFlow with built-in GPU support.
+
+To check if TensorFlow is using the GPU, you can use the following Python code:
+
+```python
+import tensorflow as tf
+print("Num GPUs Available: ", len(tf.config.list_physical_devices('GPU')))
 ```
   
-```buildoutcfg
-python
+You can also log device placements with:
+  
+```python
+tf.debugging.set_log_device_placement(True)
 ```
-```buildoutcfg
-from isoCycle import decoder
-decoder.run_example()
-```
+  
+For more detailed information, please refer to the following guides:
 
-
+1. [Using a GPU with TensorFlow.](https://www.tensorflow.org/guide/gpu)
+2. CUDA Toolkit and cuDNN installation guides on the [NVIDIA website](https://developer.nvidia.com/cuda-toolkit).
+Please follow the respective instructions carefully when installing these components.
