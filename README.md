@@ -21,6 +21,9 @@ You can run the demo on Google Colab <a class="new-tab-link" href="https://colab
 
 On this Google Colab (linked above), you can use isoCycle online to analyze your own data. All you need to do is upload your recorded spike times to your Google Drive in a .npy file. IsoCycle will then extract the times of the cycle you choose (e.g., gamma, theta, etc.) from your data.
 <br>If you're using kilosort/phy for spike sorting, you can use this [matlab function](https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/isoCycleInput_build.m) to generates the .npy file for this google colab.</p>
+
+## GPU acceleration
+<p> isoCycle employs a decoder developed with TensorFlow. Leveraging a GPU significantly reduces execution time, a factor particularly crucial for long recordings. However, configuring your GPU to work with TensorFlow requires additional steps post-package installation. For quick guidance, please refer to the section [Setting up TensorFlow with GPU Support](#setting-up-tensorflow-with-gpu-support). 
     
 ## Installation
 <p>
@@ -35,8 +38,6 @@ You can then import isoCycle and run the example Notebook:
 from isoCycle import decoder
 decoder.run_example()
 ```
-  
-### GPU acceleration
 
 Here are the detailed steps for installation from scratch using Anaconda:
 
@@ -79,4 +80,27 @@ from isoCycle import decoder
 decoder.run_example()
 ```
 
+## Setting up TensorFlow with GPU Support
 
+To utilize the power of GPU acceleration with TensorFlow, ensure that you have the correct hardware and software setup. 
+
+You will need a CUDA-capable GPU and you'll need to install the CUDA Toolkit and the cuDNN library. Once these are installed, you can install TensorFlow with built-in GPU support.
+
+To check if TensorFlow is using the GPU, you can use the following Python code:
+
+```python
+import tensorflow as tf
+print("Num GPUs Available: ", len(tf.config.list_physical_devices('GPU')))
+```
+  
+You can also log device placements with:
+  
+```python
+tf.debugging.set_log_device_placement(True)
+```
+  
+For more detailed information, please refer to the following guides:
+
+1. [Using a GPU with TensorFlow.](https://www.tensorflow.org/guide/gpu)
+2. CUDA Toolkit and cuDNN installation guides on the [NVIDIA website](https://developer.nvidia.com/cuda-toolkit).
+Please follow the respective instructions carefully when installing these components.
