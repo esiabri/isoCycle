@@ -29,7 +29,8 @@ If you are comfortable with Python, you can install isoCycle in your environment
 ```buildoutcfg
 pip install isoCycle
 ```
-You can then import isoCycle and run the example Notebook: [MOVE THE EXAMPLE DOC TO ITS OWN FOLDER WITH A LINK HERE----TO RUN THE NOTEBOOK ON THE SAME ENV IT NEEDS EXTRA STEPS (what if the env name is known?, running the notebook with a predefined kernel, but it needs to have the additional code for adding the kernel to the jupyter kernel list----]
+You can then import isoCycle and run the example Notebook: 
+<!-- [MOVE THE EXAMPLE DOC TO ITS OWN FOLDER WITH A LINK HERE----TO RUN THE NOTEBOOK ON THE SAME ENV IT NEEDS EXTRA STEPS (what if the env name is known?, running the notebook with a predefined kernel, but it needs to have the additional code for adding the kernel to the jupyter kernel list----] -->
 ```buildoutcfg
 from isoCycle import decoder
 decoder.run_example()
