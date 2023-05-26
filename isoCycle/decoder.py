@@ -56,7 +56,7 @@ def cycleDetection(spikeTimes, decoderAdd=None,\
         return np.array([])
     
     if np.max(spikeTimes)>1e6:
-        print('I guess your numpy array contains the sample number for the spikes and not the spike times, devide the values with the sampling rate')
+        print('I guess your numpy array contains the sample number for the spikes and not the spike times, devide the values with the sampling rate in seconds')
         return np.array([])
 
     # cycle scale to initiate the proper decoder
@@ -161,7 +161,7 @@ def cycleDetection(spikeTimes, decoderAdd=None,\
             spikingDistRel2detectedCycles(spikeTimes, detectedCyclesTimes[:cycleNoForSpikeDisFig],\
                     distWindowLenght=distWindowLenght, histBinWidth=cycleWidth/binsPerCycle, cycleWdith=cycleWidth,\
                         cycleName=cycleName, cycleColor=cycleColor, showSlider=spikingDistShowSlider)
-            print('\n')
+            # print('\n')
 
     if interCycleIntervalFig:
         fig_ICI = plt.figure(figsize=(6,4))
@@ -642,7 +642,7 @@ def loadDecoder(decoderAdd, modelEvaluation=False, n=0):
 
 
 def run_exampleNotebook():
-    exampleNotebook_path = pkg_resources.resource_filename('isoCycle', 'example/isoCycle_example.ipynb')
+    exampleNotebook_path = pkg_resources.resource_filename('isoCycle', 'isoCycle_example.ipynb')
 
     subprocess.run(['jupyter', 'notebook', '--NotebookApp.token=""',exampleNotebook_path], check=True)
 
