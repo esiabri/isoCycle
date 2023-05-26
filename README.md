@@ -5,14 +5,6 @@
 Neural oscillations are prominent features of neuronal population activity in the brain, manifesting in various forms such as frequency-specific power changes in electroencephalograms (EEG) and local field potentials (LFP), as well as phase locking between different brain regions, modulated by modes of activity. Despite the intrinsic relation between neural oscillations and the spiking activity of single neurons, identification of oscillations has predominantly relied on indirect measures of neural activity like EEG or LFP, overlooking direct exploration of oscillatory patterns in the spiking activity, which serve as the currency for information processing and information transfer in neural systems. Recent advancements in densely recording large number of neurons within a local network have enabled direct evaluation of changes in network activity over time by examining population spike count variations across different time scales. Here we leverage the power of deep neural networks to robustly isolate single cycles of neural oscillations from the spiking of densely recorded populations of neurons. isoCycle effectively identifies individual cycles in the temporal domain, where cycles from different time scales may have been combined in various ways to shape spiking probability. The reliable identification of single cycle of neural oscillations in spiking activity across various time scales will deepen our understanding about the dynamics of neural activity.
 </p>
 
-## Demo Jupyter Notebook
-<!--  -->
-[isoCycle_example.ipynb](https://github.com/esiabri/isoCycle/blob/main/isoCycle_example.ipynb) demonstrates the code used to extract gamma and beta cycles, as well as slower cycles, from the spiking activity of 131 neurons simultaneously recorded in mouse primary visual cortex (V1) during a passive visual stimulation experiment.</p>
-
-You can run the demo on Google Colab <a class="new-tab-link" href="https://colab.research.google.com/github/esiabri/isoCycle/blob/main/isoCycle_example_Colab.ipynb" target="_blank" style="pointer-events: none;">
-  <img alt="https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/colab-badge_green.svg" src="https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/colab-badge_green.svg" align="center" style="pointer-events: auto;" width="150px"/>
-</a> or [follow these steps](https://github.com/esiabri/isoCycle/tree/main/isoCycle/example) to run it on your own machine after installing the isoCycle package.
-
 ## Extract the Cycle Times in Your Spiking Data on Google Colab
 <p align="center">
 <a class="new-tab-link" href="https://colab.research.google.com/github/esiabri/isoCycle/blob/main/isoCycle_yourData_Colab.ipynb" target="_blank" style="pointer-events: none;">
@@ -20,6 +12,10 @@ You can run the demo on Google Colab <a class="new-tab-link" href="https://colab
 </a>
 
 On the Google Colab linked above, you can use isoCycle online to extract the times of the cycle you choose (e.g., gamma, theta, etc.) from your data. All you need is to have your recorded spike times saved in a .npy file. If you're using kilosort/phy for spike sorting, you can use this [matlab function](https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/isoCycleInput_build.m) to generates the .npy file for this google colab, otherwise this [python function](https://github.com/esiabri/isoCycle/blob/main/isoCycle/decoder.py#L646) could be helpfull to include the desired spike clusters into the cycle detection.</p>
+
+[isoCycle_example.ipynb](https://github.com/esiabri/isoCycle/blob/main/isoCycle_example.ipynb) demonstrates the code used to extract gamma and beta cycles, as well as slower cycles, from the spiking activity of 131 neurons simultaneously recorded in mouse primary visual cortex (V1) during a passive visual stimulation experiment.</p>
+
+</a> or [example](https://github.com/esiabri/isoCycle/tree/main/isoCycle/example).
 
 ## GPU acceleration
 isoCycle employs a decoder developed with TensorFlow. Leveraging a GPU highly reduces execution time, a factor particularly crucial for long recordings. However, configuring your GPU to work with TensorFlow requires additional steps post-package installation. For quick guidance, please refer to [Setting up TensorFlow with GPU Support](#setting-up-tensorflow-with-gpu-support). 
