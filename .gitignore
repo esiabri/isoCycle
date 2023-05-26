@@ -12,5 +12,3 @@ __pycache__/
 
 .eggs
 isoCycle.egg-info
-
-.gitattributes
