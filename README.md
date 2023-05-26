@@ -19,7 +19,7 @@ You can run the demo on Google Colab <a class="new-tab-link" href="https://colab
   <img alt="https://colab.research.google.com/assets/colab-badge.svg" src="https://colab.research.google.com/assets/colab-badge.svg" align="center" style="pointer-events: auto;" width="250px"/>
 </a>
 
-On this Google Colab (linked above), you can use isoCycle online to analyze your own data. All you need to do is upload your recorded spike times to your Google Drive in a .npy file. IsoCycle will then extract the times of the cycle you choose (e.g., gamma, theta, etc.) from your data.
+On the Google Colab linked above, you can use isoCycle online to analyze your own data. All you need to do is upload your recorded spike times to your Google Drive in a .npy file. IsoCycle will then extract the times of the cycle you choose (e.g., gamma, theta, etc.) from your data.
 <br>If you're using kilosort/phy for spike sorting, you can use this [matlab function](https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/isoCycleInput_build.m) to generates the .npy file for this google colab.</p>
 
 ## GPU acceleration
