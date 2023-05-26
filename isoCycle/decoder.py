@@ -54,6 +54,10 @@ def cycleDetection(spikeTimes, decoderAdd=None,\
     if spikeTimes.ndim>1:
         print('Spike Times should be in a one dimensional numpy array, use YOUR_ARRAY.ndim to check the dimensionality, you can use np.concatenate(YOUR_ARRAY) in case you have several clusters saved separately')
         return np.array([])
+    
+    if np.max(spikeTimes)>1e6:
+        print('I guess your numpy array contains the sample number for the spikes and not the spike times, devide the values with the sampling rate')
+        return np.array([])
 
     # cycle scale to initiate the proper decoder
     if cycleName == 'highGamma':
