@@ -7,7 +7,7 @@ Neural oscillations are prominent features of neuronal population activity in th
 
 ## Demo Jupyter Notebook
 <!--  -->
-[isoCycle_example.ipynb](https://github.com/esiabri/isoCycle/blob/main/isoCycle_example.ipynb) demonstrates the code used to extract gamma and beta cycles, as well as slower cycles, from the spiking activity of 131 neurons simultaneously recorded in mouse primary visual cortex(V1) during a passive visual stimulation experiment.</p>
+[isoCycle_example.ipynb](https://github.com/esiabri/isoCycle/blob/main/isoCycle_example.ipynb) demonstrates the code used to extract gamma and beta cycles, as well as slower cycles, from the spiking activity of 131 neurons simultaneously recorded in mouse primary visual cortex (V1) during a passive visual stimulation experiment.</p>
 
 You can run the demo on Google Colab <a class="new-tab-link" href="https://colab.research.google.com/github/esiabri/isoCycle/blob/main/isoCycle_example_Colab.ipynb" target="_blank" style="pointer-events: none;">
   <img alt="https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/colab-badge_green.svg" src="https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/colab-badge_green.svg" align="center" style="pointer-events: auto;" width="150px"/>
