@@ -16,7 +16,7 @@ from isoCycle import utility
 
 
 def cycleDetection(spikeTimes, decoderAdd=None,\
-        regionName='V1', cycleName='gamma', wholeSession=False, cycleDetectionDur=10, detectionThreshold=0.035,\
+        regionName='', cycleName='gamma', wholeSession=False, cycleDetectionDur=10, detectionThreshold=0.035,\
             inputName='populationSpiking', interCycleIntervalFig=True, spikeDistAroundCycles=True,\
                 cycleNoForSpikeDisFig=10000, distWindowLenghtPerCycle=3, binsPerCycle=30,spikingDistShowSlider = False,\
                     limitedRAM=False, segmentLengthCoeff=50e3):
@@ -30,7 +30,7 @@ def cycleDetection(spikeTimes, decoderAdd=None,\
             wholeSession               : default: False - if True the decoder is run on the entire session, if Fasle the cycles are detected in the first "cycleDetectionDur" seconds
             cycleDetectionDur          : default: 1500 - the epoch length from session start for cycle detection if wholeSession == False
             detectionThreshold         : default: 0.035 - threshold for detecting the cycles from the decoder input, the default value is for 5% FA and 93% Hit for 5% noise and 20% Jitter (std) on the width of the cycles
-            regionName                 : default: 'V1' - the name of the region for the data for the generated figures
+            regionName                 : default: '' - the name of the region for the data for the generated figures
             interCycleIntervalFig      : default: True - to generate the inter-cycle-interval distribution of the detected cycles
             spikeDistAroundCycles      : default: True - to generate the distribution of spikes around the detected cycles
             cycleNoForSpikeDisFig      : default: 10000 - Number of the detected cycles used to generate the spike distribution around the cycles, 'All' to included all the detected cycles
@@ -142,8 +142,11 @@ def cycleDetection(spikeTimes, decoderAdd=None,\
 
 
 
-    # print('%(number)d %(string)s cycles detected during %(dur)d seconds in %(regionName)s' %{'string':cycleName,'number':detectedCyclesNo, 'regionName':regionName, 'dur':sessionLength})
-    print('%(number)d %(string)s cycles detected during %(dur)d seconds' %{'string':cycleName,'number':detectedCyclesNo, 'dur':sessionLength})
+    # 
+    if regionName=='':
+        print('%(number)d %(string)s cycles detected during %(dur)d seconds' %{'string':cycleName,'number':detectedCyclesNo, 'dur':sessionLength})
+    else:
+        print('%(number)d %(string)s cycles detected during %(dur)d seconds in %(regionName)s' %{'string':cycleName,'number':detectedCyclesNo, 'regionName':regionName, 'dur':sessionLength})
 
     print('')
 
@@ -260,9 +263,15 @@ def spikingDistRel2detectedCycles(spikeTimes, detectedCycleTimes, distWindowLeng
     # ax.set_title('distribution of '+ inputName +' aligned to detected '+cycleName+ \
     #                                     ' cycles in '+ regionName, fontsize=14)
     
-    utility.color_title(['distribution of ', inputName,' aligned to detected ',cycleName, \
-                                        ' cycles in ', regionName],\
-                            ['k','k','k',cycleColor,'k','k'], ax=ax, textprops={'fontsize':15})
+    if regionName=='':
+        utility.color_title(['distribution of ', inputName,' aligned to detected ',cycleName, \
+                                            ' cycles'],\
+                                ['k','k','k',cycleColor,'k'], ax=ax, textprops={'fontsize':15})
+
+    else:
+        utility.color_title(['distribution of ', inputName,' aligned to detected ',cycleName, \
+                                            ' cycles in ', regionName],\
+                                ['k','k','k',cycleColor,'k','k'], ax=ax, textprops={'fontsize':15})
 
     ax.set_xbound([-defaultZoomDist,defaultZoomDist])
 
@@ -315,9 +324,16 @@ def spikingDistRel2detectedCycles(spikeTimes, detectedCycleTimes, distWindowLeng
         # ax.set_title('distribution of '+ inputName +' aligned to detected '+cycleName+ \
         #                                 ' cycles in '+ regionName, fontsize=14)
         
-        utility.color_title(['distribution of ', inputName,' aligned to detected ',cycleName, \
-                                        ' cycles in ', regionName],\
-                            ['k','k','k',cycleColor,'k','k'], ax=ax, textprops={'fontsize':15})
+        if regionName=='':
+            utility.color_title(['distribution of ', inputName,' aligned to detected ',cycleName, \
+                                                ' cycles'],\
+                                    ['k','k','k',cycleColor,'k'], ax=ax, textprops={'fontsize':15})
+
+        else:
+            utility.color_title(['distribution of ', inputName,' aligned to detected ',cycleName, \
+                                                ' cycles in ', regionName],\
+                                    ['k','k','k',cycleColor,'k','k'], ax=ax, textprops={'fontsize':15})
+
         ax.patch.set_alpha(0)
         axBinSize.patch.set_alpha(0)
         fig.canvas.draw_idle()
