@@ -142,7 +142,9 @@ def cycleDetection(spikeTimes, decoderAdd=None,\
 
 
 
-    print('%(number)d %(string)s cycles detected during %(dur)d seconds in %(regionName)s' %{'string':cycleName,'number':detectedCyclesNo, 'regionName':regionName, 'dur':sessionLength})
+    # print('%(number)d %(string)s cycles detected during %(dur)d seconds in %(regionName)s' %{'string':cycleName,'number':detectedCyclesNo, 'regionName':regionName, 'dur':sessionLength})
+    print('%(number)d %(string)s cycles detected during %(dur)d seconds' %{'string':cycleName,'number':detectedCyclesNo, 'dur':sessionLength})
+
     print('')
 
     # if showFigs:
