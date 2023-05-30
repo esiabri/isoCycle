@@ -22,7 +22,7 @@ setup(
   author = 'Ehsan Sabri',                   
   author_email = 'ehsan.sabri@gmail.com',      
   url = 'https://github.com/esiabri/isoCycle',  
-  download_url = 'https://github.com/esiabri/isoCycle/archive/refs/tags/0.0.61.tar.gz',   
+  download_url = 'https://github.com/esiabri/isoCycle/archive/refs/tags/0.1.0.tar.gz',   
   keywords = ['Neuroscience', 'Oscillation', 'Cycle'],  
   setup_requires=['setuptools_scm',
                   # 'incremental'
@@ -41,7 +41,7 @@ setup(
   #       'isoCycle': ['*.ipynb', 'example/*.', 'model/*.h5', 'example/*.npy']
   #   },
   classifiers=[
-    'Development Status :: 2 - Pre-Alpha',     
+    'Development Status :: 3 - Alpha',     
     'Intended Audience :: Science/Research', 
     'Programming Language :: Python',   
   ],
