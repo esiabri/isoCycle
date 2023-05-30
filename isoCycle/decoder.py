@@ -16,7 +16,7 @@ from isoCycle import utility
 
 
 def cycleDetection(spikeTimes, decoderAdd=None,\
-        regionName='', cycleName='gamma', wholeSession=False, cycleDetectionDur=10, detectionThreshold=0.035,\
+        regionName='', cycleName='gamma', wholeSession=False, cycleDetectionDur=10, detectionThreshold=0.1,\
             inputName='populationSpiking', interCycleIntervalFig=True, spikeDistAroundCycles=True,\
                 cycleNoForSpikeDisFig=10000, distWindowLenghtPerCycle=3, binsPerCycle=30,spikingDistShowSlider = False,\
                     limitedRAM=False, segmentLengthCoeff=50e3):
