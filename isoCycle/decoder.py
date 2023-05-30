@@ -660,7 +660,7 @@ def loadDecoder(decoderAdd, modelEvaluation=False, n=0):
 
 
 def run_exampleNotebook():
-    exampleNotebook_path = pkg_resources.resource_filename('isoCycle', 'isoCycle_example.ipynb')
+    exampleNotebook_path = pkg_resources.resource_filename('isoCycle', 'example/isoCycle_example.ipynb')
 
     subprocess.run(['jupyter', 'notebook', '--NotebookApp.token=""',exampleNotebook_path], check=True)
 
