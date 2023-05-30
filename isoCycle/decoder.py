@@ -29,7 +29,7 @@ def cycleDetection(spikeTimes, decoderAdd=None,\
             cycleName                  : default: 'gamma' - options: 'highGamma', 'gamma', 'beta', 'alpha', 'theta' ,'delta'
             wholeSession               : default: False - if True the decoder is run on the entire session, if Fasle the cycles are detected in the first "cycleDetectionDur" seconds
             cycleDetectionDur          : default: 1500 - the epoch length from session start for cycle detection if wholeSession == False
-            detectionThreshold         : default: 0.035 - threshold for detecting the cycles from the decoder input, the default value is for 5% FA and 93% Hit for 5% noise and 20% Jitter (std) on the width of the cycles
+            detectionThreshold         : default: 0.1 - threshold for detecting the cycles from the decoder input, the default value is for 5% FA and 97% Hit for 5% noise and 20% Jitter (std) on the width of the cycles
             regionName                 : default: '' - the name of the region for the data for the generated figures
             interCycleIntervalFig      : default: True - to generate the inter-cycle-interval distribution of the detected cycles
             spikeDistAroundCycles      : default: True - to generate the distribution of spikes around the detected cycles
