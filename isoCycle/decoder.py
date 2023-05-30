@@ -138,7 +138,7 @@ def cycleDetection(spikeTimes, decoderAdd=None,\
     detectedCyclesTimes = np.concatenate(detectedCyclesTimes).squeeze()
 
     detectedCyclesNo = len(detectedCyclesTimes)
-    sessionLength = int(decoderInput_timePoints[-1])
+    sessionLength = int(decoderInput_timePoints[-1] - decoderInput_timePoints[0])
 
 
 
@@ -165,7 +165,7 @@ def cycleDetection(spikeTimes, decoderAdd=None,\
 
             spikingDistRel2detectedCycles(spikeTimes, detectedCyclesTimes[:cycleNoForSpikeDisFig],\
                     distWindowLenght=distWindowLenght, histBinWidth=cycleWidth/binsPerCycle, cycleWdith=cycleWidth,\
-                        cycleName=cycleName, cycleColor=cycleColor, showSlider=spikingDistShowSlider)
+                        cycleName=cycleName, cycleColor=cycleColor, showSlider=spikingDistShowSlider, regionName=regionName)
             # print('\n')
 
     if interCycleIntervalFig:
@@ -205,7 +205,7 @@ def cycleDetection(spikeTimes, decoderAdd=None,\
     return detectedCyclesTimes
 
 def spikingDistRel2detectedCycles(spikeTimes, detectedCycleTimes, distWindowLenght,\
-    histBinWidth, cycleWdith, saveFig=False, inputName='spiking', cycleName='e', sessionName=None, regionName='V1',\
+    histBinWidth, cycleWdith, saveFig=False, inputName='spiking', cycleName='e', sessionName=None, regionName='',\
         binsizeLowerBound=-3, defaultZoomDist=None, zeroLine=True, cycleColor='gray',returnFigHandle=False, showFig=True,\
             showSlider=True, normedHist=False, filterationFreqWidthCoeff=3, pValThreshold=1e-1,\
                 peakHeightThresholdPercent=1, widthCoeff=1.4, figFolderAdd=''):
