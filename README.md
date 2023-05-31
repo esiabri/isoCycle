@@ -24,7 +24,7 @@ isoCycle employs a decoder developed with TensorFlow. Leveraging a GPU highly re
     
 ## Installation
 <p>
-Python users, you can install isoCycle with pip, consider a new environment as conflicts are likely:
+If you have Python set up, you can install isoCycle with pip, consider a new environment as conflicts are likely:
 
 ```buildoutcfg
 pip install isoCycle
