@@ -1,9 +1,9 @@
 # isoCycle
 #### A Deep Network-Based Decoder for Isolating Single Cycles of Neural Oscillations in Spiking Activity
 
-<p align="justify">
-Neural oscillations are prominent features of neuronal population activity in the brain, manifesting in various forms such as frequency-specific power changes in electroencephalograms (EEG) and local field potentials (LFP), as well as phase locking between different brain regions, modulated by modes of activity. Despite the intrinsic relation between neural oscillations and the spiking activity of single neurons, identification of oscillations has predominantly relied on indirect measures of neural activity like EEG or LFP, overlooking direct exploration of oscillatory patterns in the spiking activity, which serve as the currency for information processing and information transfer in neural systems. Recent advancements in densely recording large number of neurons within a local network have enabled direct evaluation of changes in network activity over time by examining population spike count variations across different time scales. Here we leverage the power of deep neural networks to robustly isolate single cycles of neural oscillations from the spiking of densely recorded populations of neurons. isoCycle effectively identifies individual cycles in the temporal domain, where cycles from different time scales may have been combined in various ways to shape spiking probability. The reliable identification of single cycle of neural oscillations in spiking activity across various time scales will deepen our understanding about the dynamics of neural activity.
-</p>
+<!-- <p align="justify"> -->
+Neural oscillations are prominent features of neuronal population activity in the brain, manifesting in various forms such as frequency-specific power changes in electroencephalograms (EEG) and local field potentials (LFP), as well as phase locking between different brain regions, modulated by modes of activity. Despite the intrinsic relation between neural oscillations and the ***spiking*** activity of single neurons, identification of oscillations has predominantly relied on indirect measures of neural activity like EEG or LFP, overlooking direct exploration of oscillatory patterns in the ***spiking*** activity, which serve as the currency for information processing and information transfer in neural systems. Recent advancements in densely recording large number of neurons within a local network have enabled direct evaluation of changes in network activity over time by examining population spike count variations across different time scales. Here we leverage the power of deep neural networks to robustly isolate single cycles of neural oscillations from the spiking of densely recorded populations of neurons. isoCycle effectively identifies individual cycles in the temporal domain, where cycles from different time scales may have been combined in various ways to shape spiking probability. The reliable identification of single cycle of neural oscillations in spiking activity across various time scales will deepen our understanding about the dynamics of neural activity.
+<!-- </p> -->
 
 <p align="center">
   <img alt="https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/gammaCycleAvgShape.png" src="https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/gammaCycleAvgShape.png" align="center" style="pointer-events: auto;" width="600px"/>
@@ -24,7 +24,7 @@ isoCycle employs a decoder developed with TensorFlow. Leveraging a GPU highly re
     
 ## Installation
 <p>
-Python users, you can install isoCycle with pip, consider a new environment as conflicts are likely:
+If you have Python set up, you can install isoCycle with pip, consider a new environment as conflicts are likely:
 
 ```buildoutcfg
 pip install isoCycle
@@ -57,7 +57,7 @@ import isoCycle
 
 Now, with Anaconda installed, a new environment created, and isoCycle successfully installed, you are ready to analyze your data using isoCycle. You can use [Jupyter Notebook](https://jupyter.org/try-jupyter/retro/notebooks/?path=notebooks/Intro.ipynb) to import and use isoCycle
   
-6. To run the [isoCycle_example.ipynb](https://github.com/esiabri/isoCycle/blob/main/example/isoCycle_example.ipynb) refer to [example](https://github.com/esiabri/isoCycle/tree/main/isoCycle/example)
+6. To run the [isoCycle_example.ipynb](https://github.com/esiabri/isoCycle/blob/main/isoCycle/example/isoCycle_example.ipynb) refer to [example](https://github.com/esiabri/isoCycle/tree/main/isoCycle/example)
 </p>
 
 ## Setting up TensorFlow with GPU Support
