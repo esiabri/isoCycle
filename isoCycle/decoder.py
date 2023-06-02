@@ -18,8 +18,8 @@ from isoCycle import utility
 def cycleDetection(spikeTimes, decoderAdd=None,\
         regionName='', cycleName='gamma', wholeSession=False, cycleDetectionDur=10, detectionThreshold=0.1,\
             inputName='populationSpiking', interCycleIntervalFig=True, spikeDistAroundCycles=True,\
-                cycleNoForSpikeDisFig=10000, distWindowLenghtPerCycle=3, binsPerCycle=30,spikingDistShowSlider = False,\
-                    limitedRAM=False, segmentLengthCoeff=50e3):
+                cycleNoForSpikeDisFig=10000, distWindowLenghtPerCycle=3,spikingDistShowSlider = False,\
+                    limitedRAM=False, segmentLengthCoeff=50e3):#, binsPerCycle=30
     
     '''
          detect cycles from population spike times recorded in a local network
@@ -35,7 +35,7 @@ def cycleDetection(spikeTimes, decoderAdd=None,\
             spikeDistAroundCycles      : default: True - to generate the distribution of spikes around the detected cycles
             cycleNoForSpikeDisFig      : default: 10000 - Number of the detected cycles used to generate the spike distribution around the cycles, 'All' to included all the detected cycles
             distWindowLenghtPerCycle   : default: 3 - the window length for the spike distribution figure based on the length of the aimed cycle 
-            binsPerCycle               : default: 30 - the number of bins per cycle for the spike distribution figure
+            binsPerCycle               : default: 0 - the number of bins per cycle for the spike distribution figure
             spikingDistShowSlider      : default: False - show slider to change the bin size on the figure- can be run on googlecolab but very laggy
             limitedRAM                 : default: False - if True, the data is segmented to parts before decoding
             segmentLengthCoeff         : default: 50e3, the length of the segments in term of cycles to be detected if the limitedRAM==True
@@ -63,21 +63,27 @@ def cycleDetection(spikeTimes, decoderAdd=None,\
     if cycleName == 'highGamma':
         n = -8
         cycleColor = '#E8250C'
+        histBinWidth = 0.5e-3
     elif cycleName == 'gamma':
         n = -7
         cycleColor = '#D98911'
+        histBinWidth = 1e-3
     elif cycleName == 'beta':
         n = -6
         cycleColor = '#339172'
+        histBinWidth = 2e-3
     elif cycleName == 'alpha':
         n = -5
         cycleColor = '#42daf5'
+        histBinWidth = 4e-3
     elif cycleName == 'theta':
         n = -4
         cycleColor = '#2B4482'
+        histBinWidth = 8e-3
     elif cycleName == 'delta':
         n = -3
         cycleColor = '#8C2B81'
+        histBinWidth = 16e-3
     else:
         print('Enter a valid value for the target cycle, options: highGamma, gamma, beta, alpha, theta, delta')
         return np.array([])
@@ -146,9 +152,9 @@ def cycleDetection(spikeTimes, decoderAdd=None,\
 
     # 
     if regionName=='':
-        print('%(number)d %(string)s cycles detected during %(dur)d seconds' %{'string':cycleName,'number':detectedCyclesNo, 'dur':sessionLength})
+        print('%(number)d %(string)s cycles detected during %(dur)d seconds of neural recording' %{'string':cycleName,'number':detectedCyclesNo, 'dur':sessionLength})
     else:
-        print('%(number)d %(string)s cycles detected during %(dur)d seconds in %(regionName)s' %{'string':cycleName,'number':detectedCyclesNo, 'regionName':regionName, 'dur':sessionLength})
+        print('%(number)d %(string)s cycles detected during %(dur)d seconds of neural recording in %(regionName)s' %{'string':cycleName,'number':detectedCyclesNo, 'regionName':regionName, 'dur':sessionLength})
 
     print('')
 
@@ -165,8 +171,10 @@ def cycleDetection(spikeTimes, decoderAdd=None,\
     if spikeDistAroundCycles: 
             distWindowLenght = distWindowLenghtPerCycle*cycleWidth
 
+            # histBinWidth = cycleWidth/binsPerCycle
+
             spikingDistRel2detectedCycles(spikeTimes, detectedCyclesTimes[:cycleNoForSpikeDisFig],\
-                    distWindowLenght=distWindowLenght, histBinWidth=cycleWidth/binsPerCycle, cycleWdith=cycleWidth,\
+                    distWindowLenght=distWindowLenght, histBinWidth=histBinWidth, cycleWdith=cycleWidth,\
                         cycleName=cycleName, cycleColor=cycleColor, showSlider=spikingDistShowSlider, regionName=regionName)
             # print('\n')
 
@@ -256,7 +264,7 @@ def spikingDistRel2detectedCycles(spikeTimes, detectedCycleTimes, distWindowLeng
     
     if histBinWidth>0.1:
         plt.ylabel('avg spike count per bin [binsize: %(number)0.1f s]'%{'number':histBinWidth}, fontsize=14)
-    elif histBinWidth>1e-3:
+    elif histBinWidth>=1e-3:
         plt.ylabel('avg spike count per bin [binsize: %(number)0.1f ms]'%{'number':histBinWidth*1e3}, fontsize=14)
     elif histBinWidth>1e-5:
         plt.ylabel('avg spike count per bin [binsize: %(number)0.2f ms]'%{'number':histBinWidth*1e3}, fontsize=14)
