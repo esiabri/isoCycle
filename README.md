@@ -50,7 +50,7 @@ Again, replace myenv with the name of your environment.
 
 4. Install isoCycle and its dependencies by running the command:
 ```buildoutcfg
-pip install isoCycle
+conda install isoCycle
 ```
 5. After the installation is complete, you can import isoCycle into your Python scripts or notebooks using the statement
 ```buildoutcfg
