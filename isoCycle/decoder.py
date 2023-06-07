@@ -137,7 +137,7 @@ def cycleDetection(spikeTimes, decoderAdd=None,\
         # correcting the detected cycle times for the buffer size of the decoder:
 
         # if inputType == 'spikeTime':
-        detectedCyclesTimes_segment = detectedCyclesTimes_segment + decoderInput_timePoints[binsBefore] + dt
+        detectedCyclesTimes_segment = detectedCyclesTimes_segment + decoderInput_timePoints[binsBefore] #+ dt
 
         detectedCyclesTimes.append(detectedCyclesTimes_segment)
 
@@ -251,10 +251,10 @@ def spikingDistRel2detectedCycles(spikeTimes, detectedCycleTimes, distWindowLeng
 
     if normedHist:
         plt.hist(bins[:-1], bins, weights=counts*np.ones(len(counts)),\
-            align='right',color='grey')
+            align='mid',color='grey')
     else:
         plt.hist(bins[:-1], bins, weights=counts*np.ones(len(counts))/len(detectedCycleTimes),\
-            align='right',color='grey')
+            align='mid',color='grey')
 
     # plt.axhline(chanceLevelPopulationFR,ls='--',color='w',alpha=0.6)
         
