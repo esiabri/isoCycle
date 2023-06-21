@@ -320,7 +320,7 @@ def spikingDistRel2detectedCycles(spikeTimes, detectedCycleTimes, distWindowLeng
                                     bins=binNoUpdated)
         ax.hist(bins[:-1], bins, weights=\
             counts*np.ones(len(counts))/len(detectedCycleTimes),\
-        align='right',color='grey')
+        align='mid',color='grey')
         ax.set_xlabel('time from cycle center (s)', fontsize=14)
         if histBinWidth>0.1:
             ax.set_ylabel('avg spike count per bin [binsize: %(number)0.1f s]'%{'number':histBinWidth}, fontsize=14)
