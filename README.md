@@ -22,7 +22,7 @@ On the Google Colab linked above, you can use isoCycle online to extract the tim
 The default figures in this Colab notebook show the average shape of gamma and beta cycles, as well as slower cycles, in the spiking activity of 131 neurons simultaneously recorded in the mouse primary visual cortex (V1) during a passive visual stimulation experiment. You can regenerate these figures using this [data file](https://drive.google.com/file/d/1USRsBorZa9iL2ukuZJOt5P8Eu8tZL3aJ/view?usp=sharing). For the local machine version of this notebook see [example](https://github.com/esiabri/isoCycle/tree/main/isoCycle/example).</p>
 
 ## GPU acceleration
-isoCycle employs a decoder developed with TensorFlow. Leveraging a GPU highly reduces execution time, a factor particularly crucial for long recordings. However, configuring your GPU to work with TensorFlow requires additional steps post-package installation. For quick guidance, please refer to [Setting up TensorFlow with GPU Support](#setting-up-tensorflow-with-gpu-support). 
+isoCycle employs a decoder developed with TensorFlow. Leveraging a GPU highly reduces execution time, a factor particularly crucial for long recordings. However, configuring your GPU to work with TensorFlow requires additional steps post-package installation. For quick guidance, refer to [Setting up TensorFlow with GPU Support](#setting-up-tensorflow-with-gpu-support). 
     
 ## Installation
 <p>
