@@ -26,13 +26,14 @@ isoCycle employs a decoder developed with TensorFlow. Leveraging a GPU highly re
     
 ## Installation
 <p>
-quick: install isoCycle with pip, consider a new environment as conflicts are likely
+  
+**quick**: install isoCycle with pip, consider a new environment as conflicts are likely
 
 ```buildoutcfg
 pip install isoCycle
 ```
 
-detailed: steps for installation from scratch using Anaconda
+Steps for installation from scratch using Anaconda:
 
 1. First, ensure that you have Anaconda installed on your computer. If you don't have Anaconda, you can download it from the official Anaconda [website](https://www.anaconda.com/downloads). Anaconda is a popular distribution of Python that comes with many pre-installed packages and a package manager called conda, making it convenient for data analysis and scientific computing tasks.
 
