@@ -230,11 +230,18 @@ def spikingDistRel2detectedCycles(spikeTimes, detectedCycleTimes, distWindowLeng
     responseWindowStart = distWindowLenght
     responseWindowEnd = distWindowLenght
 
+    # triggeredSpikesTimes2detectedCycles = \
+    #         spike.eventTriggeredSpiking(spikeTimes, \
+    #             detectedCycleTimes,\
+    #                 responseWindowEnd = responseWindowEnd, \
+    #                     responseWindowStart = responseWindowStart)
+
     triggeredSpikesTimes2detectedCycles = \
-            spike.eventTriggeredSpiking(spikeTimes, \
+            spike.eventTriggeredSpikingKDTree(spikeTimes, \
                 detectedCycleTimes,\
                     responseWindowEnd = responseWindowEnd, \
                         responseWindowStart = responseWindowStart)
+    
 
     responseWindowDur = responseWindowStart + responseWindowEnd
     binNo = int(responseWindowDur/histBinWidth)

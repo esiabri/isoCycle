@@ -77,6 +77,37 @@ def eventTriggeredSpiking(spikesTime, eventsTime, responseWindowEnd = 3, respons
  
     return np.array(TriggeredSpikesAllTrials, dtype=object)
 
+from scipy.spatial import KDTree
+def eventTriggeredSpikingKDTree(spikesTime, eventsTime, responseWindowEnd=3, responseWindowStart=1, histBinWidth=50e-3):
+
+    spikesTime = spikesTime.reshape(-1, 1)
+    eventsTime = eventsTime.reshape(-1, 1)
+    
+    kdtree = KDTree(spikesTime)
+    
+    # Create batches of eventsTime for querying
+    batch_size = 1000  # You can experiment with different batch sizes
+    num_batches = len(eventsTime) // batch_size + 1
+    
+    TriggeredSpikesAllTrials = []
+    
+    # Loop through each batch
+    for i in range(num_batches):
+        start_idx = i * batch_size
+        end_idx = (i + 1) * batch_size
+        
+        # Query the KDTree in batches
+        indices_list = kdtree.query_ball_point(eventsTime[start_idx:end_idx], r=responseWindowEnd)
+        
+        # Process the result of the batch query
+        for j, index_list in enumerate(indices_list):
+            if index_list:  # Check if index_list is not empty
+                index_list = np.array(index_list, dtype=int)  # Convert to integer type
+                triggered_spikes = spikesTime[index_list] - eventsTime[start_idx + j]
+                TriggeredSpikesAllTrials.append(triggered_spikes)
+    
+    return np.array(TriggeredSpikesAllTrials, dtype=object)
+
 
 def loadSpikesFromPhy(dataFileBaseFolder=None):
 

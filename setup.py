@@ -1,4 +1,5 @@
 from setuptools import setup
+import fnmatch
 import os
 
 def read_version():
