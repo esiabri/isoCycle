@@ -8,8 +8,14 @@ Neural oscillations are prominent features of neuronal population activity in th
 <!-- </p> -->
 
 <p align="center">
+  <img alt="https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/decoder_schematics.jpg" src="https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/decoder_schematics.jpg" align="center" style="pointer-events: auto;" width="600px"/>
+</a>
+
+<p align="center">
   <img alt="https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/gammaCycleAvgShape.png" src="https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/gammaCycleAvgShape.png" align="center" style="pointer-events: auto;" width="600px"/>
 </a>
+
+
 
 ## Extract the Cycle Times in Your Spiking Data on Google Colab
 <p align="center">
