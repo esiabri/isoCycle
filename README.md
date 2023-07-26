@@ -64,9 +64,7 @@ conda install isoCycle
 import isoCycle
 ```
 
-Now, with Anaconda installed, a new environment created, and isoCycle successfully installed, you are ready to analyze your data using isoCycle. You can use [Jupyter Notebook](https://jupyter.org/try-jupyter/retro/notebooks/?path=notebooks/Intro.ipynb) to import and use isoCycle
-  
-6. To run the [isoCycle_example.ipynb](https://github.com/esiabri/isoCycle/blob/main/isoCycle/example/isoCycle_example.ipynb) refer to [example](https://github.com/esiabri/isoCycle/tree/main/isoCycle/example)
+Now, with Anaconda installed, a new environment created, and isoCycle successfully installed, you are ready to analyze your data using isoCycle. One option is to use [Jupyter Notebook](https://jupyter.org/try-jupyter/retro/notebooks/?path=notebooks/Intro.ipynb). Here is an example Notebook: [isoCycle_example.ipynb](https://github.com/esiabri/isoCycle/blob/main/isoCycle/example/isoCycle_example.ipynb)
 </p>
 
 ## Setting up TensorFlow with GPU Support
