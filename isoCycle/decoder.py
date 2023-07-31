@@ -56,7 +56,7 @@ def cycleDetection(spikeTimes, decoderAdd=None,\
         return np.array([])
     
     if np.max(spikeTimes)>1e6:
-        print('I guess your numpy array contains the sample number for the spikes and not the spike times, devide the values with the sampling rate in seconds')
+        print('I guess your numpy array contains the sample number for the spikes and not the spike times, devide the values by the sampling rate and give the spike times in seconds')
         return np.array([])
 
     # cycle scale to initiate the proper decoder
@@ -95,7 +95,7 @@ def cycleDetection(spikeTimes, decoderAdd=None,\
 
     # restricting the analysis to a portion of the session
     if wholeSession == False:
-        spikeTimes = spikeTimes[spikeTimes<=(cycleDetectionDur+0.1)]
+        spikeTimes = spikeTimes[spikeTimes<=(np.sort(spikeTimes)[0]+cycleDetectionDur+0.1)]
 
     
     if limitedRAM==True:
@@ -606,7 +606,7 @@ def cycleTimeExtractionFromDecoderOutput(decoderOutput, detectingTemplateLen,\
 
     return templateTimesDetected
     
-# code changed from NeuralDecoding package https://github.com/KordingLab/Neural_Decoding
+# code adapted from NeuralDecoding package https://github.com/KordingLab/Neural_Decoding
 def buildDecoderInput(spikeTimes, dt, bins_before=30, bins_current=1, bins_after=30, zScore=True):
 
     histBinWidth_forDecoder = 10*dt
@@ -635,7 +635,7 @@ def buildDecoderInput(spikeTimes, dt, bins_before=30, bins_current=1, bins_after
 
     return decoderInput_timePoints, decoderInput
 
-# code changed from Neural_Decoding package https://github.com/KordingLab/Neural_Decoding
+# code adapted from Neural_Decoding package https://github.com/KordingLab/Neural_Decoding
 def add_history(input,bins_before,bins_after,bins_current=1):
 
     num_examples=len(input) #Number of total time bins we have neural data for
@@ -741,3 +741,28 @@ def isoCycleInput_build(spikesTimes=[] , spikeClusters=[],\
     #     pickle.dump(np.sort(allValidSpikes),f)
 
     return np.sort(allValidSpikes)
+
+
+import os
+from google.colab import files
+def saveResults_colab(data, targetFileName, directory_path,\
+                              output_format='Python',\
+                                   download_cycleTimes=True):
+    
+
+    if output_format == 'Python':
+        targetFileName = targetFileName+'.npy'
+        cycleTimes_fileAdd = os.path.join(directory_path, targetFileName)
+        np.save(cycleTimes_fileAdd,data)
+
+    elif output_format == 'Matlab':
+        from scipy.io import savemat
+
+        targetFileName = targetFileName+'.mat'
+        cycleTimes_fileAdd = os.path.join(directory_path, targetFileName)
+        savemat(cycleTimes_fileAdd,\
+                {targetFileName:data})
+
+    # download the results
+    if download_cycleTimes == True:
+        files.download(cycleTimes_fileAdd)
