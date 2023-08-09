@@ -1,5 +1,6 @@
 # isoCycle
-[![preprint](https://img.shields.io/badge/preprint-bioRxiv-blue)]()
+<!-- [![preprint](https://img.shields.io/badge/preprint-bioRxiv-blue)]() -->
+[![pip](https://img.shields.io/badge/poster-CCN23-blue)](https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/Poster_CCNeuro.pdf)
 [![pip](https://img.shields.io/badge/pip%20install-PyPI-orange)](https://pypi.org/project/isoCycle/)
 ### A Deep Network-Based Decoder for Isolating Single Cycles of Neural Oscillations in Spiking Activity
 
