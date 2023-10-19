@@ -14,12 +14,12 @@ Neural oscillations are prominent features of brain activity, observable as freq
   <img alt="https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/decoder_schematics.jpg" src="https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/decoder_schematics.jpg" align="center" style="pointer-events: auto;" width="600px"/>
 </a>
 
-<!-- <p align="center">
+<!--<p align="center">
   <img alt="https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/gammaCycleAvgShape.png" src="https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/gammaCycleAvgShape.png" align="center" style="pointer-events: auto;" width="600px"/>
 </a>-->
 
 
-<!-- 
+
 ## Extract the Cycle Times in Your Spiking Data on Google Colab
 <p align="center">
 <a class="new-tab-link" href="https://colab.research.google.com/github/esiabri/isoCycle/blob/main/isoCycle_yourData_Colab.ipynb" target="_blank" style="pointer-events: none;">
@@ -29,7 +29,7 @@ Neural oscillations are prominent features of brain activity, observable as freq
 On the Google Colab linked above, you can use isoCycle online to extract the times of the cycle you choose (e.g., gamma, theta, etc.) in your data. All you need is to have your recorded spike times (from all the nearby units combined) saved in a .npy file. If you're using kilosort/phy for spike sorting, you can use this [matlab function](https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/isoCycleInput_build.m) to generate the .npy file for this google colab, otherwise this [python function](https://github.com/esiabri/isoCycle/blob/main/isoCycle/decoder.py#L646) could be helpful to include spikes fron the desired units into the cycle detection.</p>
 
 The default figures in this Colab notebook show the average shape of gamma and beta cycles, as well as slower cycles, in the spiking activity of 131 neurons simultaneously recorded in the mouse primary visual cortex (V1) during a passive visual stimulation experiment. You can regenerate these figures using this [data file](https://drive.google.com/file/d/1USRsBorZa9iL2ukuZJOt5P8Eu8tZL3aJ/view?usp=sharing). For the local machine version of this notebook see [example](https://github.com/esiabri/isoCycle/tree/main/isoCycle/example).</p>
--->
+
 ## GPU acceleration
 isoCycle employs a decoder developed with TensorFlow. Leveraging a GPU highly reduces execution time, a factor particularly crucial for long recordings. However, configuring your GPU to work with TensorFlow requires additional steps post-package installation. For quick guidance, refer to [Setting up TensorFlow with GPU Support](#setting-up-tensorflow-with-gpu-support). 
     
