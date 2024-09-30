@@ -1,5 +1,5 @@
 # isoCycle
-[![preprint](https://img.shields.io/badge/preprint-bioRxiv-blue)](https://www.biorxiv.org/content/10.1101/2023.11.20.563492v1)
+[![preprint](https://img.shields.io/badge/preprint-bioRxiv-blue)](https://www.biorxiv.org/content/10.1101/2023.11.20.563492)
 [![pip](https://img.shields.io/badge/your%20data-googleColab-orange)](https://colab.research.google.com/github/esiabri/isoCycle/blob/main/isoCycle_yourData_Colab.ipynb)
 [![pip](https://img.shields.io/badge/pip%20install-PyPI-yellow)](https://pypi.org/project/isoCycle/)
 [![pip](https://img.shields.io/badge/poster-isoCycle-blue)](https://github.com/esiabri/isoCycle/blob/main/isoCycle/files/isoCyclePoster_0824.pdf)
